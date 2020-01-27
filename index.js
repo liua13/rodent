@@ -39,7 +39,6 @@ function formatDate(date){
 	var year = date.substring(0, 4);
 	var month = date.substring(5, 7);
 	var day = date.substring(8, 10);
-	console.log(year);
 	return month + "/" + day + "/" + year;
 
 }
