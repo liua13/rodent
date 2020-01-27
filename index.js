@@ -19,7 +19,7 @@ $.ajax({
 	// displays markers
 	var markerClusters = L.markerClusterGroup();
 	for(var i = 0; i < data.length; i++){
-		if(data[i].latitude!=null){
+		if(data[i].latitude!=null && data[i].street_name!=null && data[i].street_name.trim()!=""){
 			(data[i].house_number==null) ? house_num = "" : house_num = data[i].house_number; // if no apartment / house number --> empty string
 			var date = formatDate(data[i].inspection_date);
 			var popup = "<b>" + house_num + " <span style='text-transform:capitalize;'>" + data[i].street_name.toLowerCase() + "</span><br/>" + 
@@ -39,6 +39,7 @@ function formatDate(date){
 	var year = date.substring(0, 4);
 	var month = date.substring(5, 7);
 	var day = date.substring(8, 10);
+	console.log(year);
 	return month + "/" + day + "/" + year;
 
 }
